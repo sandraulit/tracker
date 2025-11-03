@@ -1,0 +1,26 @@
+
+---
+
+### 🐍 **main.py**
+```python
+import sys
+from src.mood import add_mood, view_moods
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python main.py [add/view] [mood]")
+        return
+
+    command = sys.argv[1]
+    if command == "add":
+        if len(sys.argv) < 3:
+            print("Please specify your mood (e.g. happy, tired, relaxed).")
+            return
+        add_mood(sys.argv[2])
+    elif command == "view":
+        view_moods()
+    else:
+        print("Unknown command. Use 'add' or 'view'.")
+
+if __name__ == "__main__":
+    main()
